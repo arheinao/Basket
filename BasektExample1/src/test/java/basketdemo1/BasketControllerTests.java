@@ -98,7 +98,7 @@ class BasketControllerTests {
 	    public void testRemoveItemNotInCart() {
 
 	    	ProductEntity firstProduct = new ProductEntity("Marina's socks", new BigDecimal("25.00"));
-	    	ProductEntity secondProduct = new ProductEntity("Michel's lens", new BigDecimal("5.00"));
+	    	ProductEntity secondProduct = new ProductEntity("Gorana's lens", new BigDecimal("5.00"));
 	    	ProductEntity thirdProduct = new ProductEntity("Mama's dress", new BigDecimal("100.00"));	    	
 	    	productRepository.saveAndFlush(firstProduct);
 	    	productRepository.saveAndFlush(secondProduct);
@@ -112,9 +112,7 @@ class BasketControllerTests {
 	    	Throwable throwable =  assertThrows(Throwable.class, () -> {
 	    		basketService.removeBasketItem(thirdProduct.getId(), Users.getCurrentUsername());
 	    	});
-	    	assertEquals(ProductNotFoundException.class, throwable.getClass());
-	    	
-	    	//Note: an exception could have also been tested through fail("Because of ProductNotFoundException")
+	    	assertEquals(ProductNotFoundException.class, throwable.getClass());	    		   
 	    }
 	    
 	    
@@ -122,7 +120,7 @@ class BasketControllerTests {
 	    public void testBasketTotalPrice() {
 	    	
 	    	ProductEntity firstProduct = new ProductEntity("Marina's socks", new BigDecimal("25.00"));
-	    	ProductEntity secondProduct = new ProductEntity("Michel's lens", new BigDecimal("5.00"));
+	    	ProductEntity secondProduct = new ProductEntity("Gorana's lens", new BigDecimal("5.00"));
 	    	ProductEntity thirdProduct = new ProductEntity("Mama's dress", new BigDecimal("100.00"));
 	    	
 	    	productRepository.saveAndFlush(firstProduct);

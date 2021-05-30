@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 import basketdemo1.entities.PaymentDetails;
 
 @Service
-public class PaymentService{
+public class PaymentMockService implements PaymentServiceInterface {
 	
-	public PaymentService() {}
+	public PaymentMockService() {}
 	
 	//mock service
 	public Long pay(PaymentDetails paymentDetails, Long basketId, BigDecimal totalPrice) {

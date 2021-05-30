@@ -12,16 +12,16 @@ import basketdemo1.enumeration.OrderStatus;
 import basketdemo1.services.BasketNotFoundExeption;
 import basketdemo1.services.BasketService;
 import basketdemo1.services.PaymentException;
-import basketdemo1.services.PaymentService;
+import basketdemo1.services.PaymentMockService;
 import basketdemo1.utilities.Users;
 
 @RestController
 public class PaymentController {
 		
 	BasketService basketService;
-	PaymentService paymentService;
+	PaymentMockService paymentService;
 	
-	public PaymentController(BasketService basketService, PaymentService paymentService) {		
+	public PaymentController(BasketService basketService, PaymentMockService paymentService) {		
 		this.basketService = basketService;
 		this.paymentService = paymentService;
 	}

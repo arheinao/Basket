@@ -29,28 +29,28 @@ public class LoadDatabase {
 			  BasketItemRepository basketItemRepository) {
 
 	    return args -> {
-	    	ProductEntity pe1 = new ProductEntity("Marina's socks", new BigDecimal("25.00"));
-	    	ProductEntity pe2 = new ProductEntity("Michel's lens", new BigDecimal("5.00"));
-	    	ProductEntity pe3 = new ProductEntity("Mama's dress", new BigDecimal("100.00"));
-	    	productRepository.save(pe1);
-	    	productRepository.save(pe2);
-	    	productRepository.save(pe3);
+	    	ProductEntity firstProductEntity = new ProductEntity("Marina's socks", new BigDecimal("25.00"));
+	    	ProductEntity secondProductEntity = new ProductEntity("Gorana's lens", new BigDecimal("5.00"));
+	    	ProductEntity thirdProductEntity = new ProductEntity("Mama's dress", new BigDecimal("100.00"));
+	    	productRepository.save(firstProductEntity);
+	    	productRepository.save(secondProductEntity);
+	    	productRepository.save(thirdProductEntity);
 	    	productRepository.findAll().forEach(product -> log.info("Preloaded " + product));	
 	    	
-	    	BasketEntity be1 = new BasketEntity("kelavam", OrderStatus.IN_PROGRESS);
-	    	BasketEntity be2 = new BasketEntity("kelavam", OrderStatus.CHECKOUT);
-	    	BasketEntity be3 = new BasketEntity("bonansea", OrderStatus.IN_PROGRESS);
-	    	basketRepository.save(be1);
-	    	basketRepository.save(be2);
-	    	basketRepository.save(be3);
+	    	BasketEntity firstBasketEntity = new BasketEntity("kelavam", OrderStatus.IN_PROGRESS);
+	    	BasketEntity secondBasketEntity = new BasketEntity("kelavam", OrderStatus.CHECKOUT);
+	    	BasketEntity thirdBasketEntity = new BasketEntity("gorana", OrderStatus.IN_PROGRESS);
+	    	basketRepository.save(firstBasketEntity);
+	    	basketRepository.save(secondBasketEntity);
+	    	basketRepository.save(thirdBasketEntity);
 	    	basketRepository.findAll().forEach(basket -> log.info("Preloaded " + basket));
 	    	
-	    	BasketItemEntity bie1 = new BasketItemEntity(pe1, be1, 1);
-	    	BasketItemEntity bie2 = new BasketItemEntity(pe2, be1, 1);
-	    	BasketItemEntity bie3 = new BasketItemEntity(pe3, be1, 1);
-	    	basketItemRepository.save(bie1);
-	    	basketItemRepository.save(bie2);
-	    	basketItemRepository.save(bie3);
+	    	BasketItemEntity firstBasketItemEntity = new BasketItemEntity(firstProductEntity, firstBasketEntity, 1);
+	    	BasketItemEntity secondBasketItemEntity = new BasketItemEntity(secondProductEntity, firstBasketEntity, 1);
+	    	BasketItemEntity thirdBasketItemEntity = new BasketItemEntity(thirdProductEntity, firstBasketEntity, 1);
+	    	basketItemRepository.save(firstBasketItemEntity);
+	    	basketItemRepository.save(secondBasketItemEntity);
+	    	basketItemRepository.save(thirdBasketItemEntity);
 	    	basketItemRepository.findAll().forEach(basketItem -> log.info("Preloaded " + basketItem));
 	    };
 	  }
