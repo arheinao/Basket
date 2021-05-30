@@ -110,6 +110,12 @@ Results:
 
         Check with curl http://localhost:8080/basket/items
 
+    F. Payment (POST example)
+
+        Mac curl -d '{}' -H 'Content-Type: application/json' http://localhost:8080/basket/5/checkout/payment  
+		Windows curl -d "{}" -H "Content-Type: application/json" http://localhost:8080/basket/5/checkout/payment
+
+
 
 ### IDE and dependecies
 IDE: Spring Tool Suite 4.4.10.0. release  
