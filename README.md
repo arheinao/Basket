@@ -3,9 +3,9 @@ There are two ways to test the code.
 
 1) **As unit tests**  
    BasketControllerTests class (basketdemo1 package) contains 3 unit tests:
-    * Adding a basket item - Test through rest controller using a mock rest service
-    * Removing non-existing basket item - Tests if exception is thrown
-    * Calculation of total price - Unit test of basket service returning the total price
+    * Adding a basket item. _Test through rest controller using a mock rest service_
+    * Removing non-existing basket item. _Tests if exception is thrown_
+    * Calculation of total price. _Unit test of basket service returning the total price_
 
 2) **As curl requests**  
    By running the Spring Boot App a H2 in-memory database is created and initialized through LoadDatabase class. Perform the following requests:
