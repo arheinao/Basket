@@ -21,7 +21,7 @@ There are two ways to test the code.
          curl http://localhost:8080/basket/items
 
       Response will be:
-           [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":1},            {"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},     {"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
+           [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":1},            {"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":2,"title":"Gorana's lens","price":5.00},"quantity":1},     {"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
 
     B. Adding a new basket item
 
@@ -33,7 +33,53 @@ There are two ways to test the code.
     By adding a new item for product with id=1, quantity is updated to "2"  
          
          curl http://localhost:8080/basket/items
-         [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":2},{"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},{"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
+         
+        
+         [{  "id": 7,
+            "basket": {
+               "id": 4,
+               "username": "kelavam",
+               "orderStatus": "IN_PROGRESS",
+               "totalPrice": 155.00
+            },
+            "product": {
+               "id": 1,
+               "title": "Marina's socks",
+               "price": 25.00
+            },
+            "quantity": 2
+         },
+         {
+            "id": 8,
+            "basket": {
+               "id": 4,
+               "username": "kelavam",
+               "orderStatus": "IN_PROGRESS",
+               "totalPrice": 155.00
+            },
+            "product": {
+               "id": 2,
+               "title": "Gorana's lens",
+               "price": 5.00
+            },
+            "quantity": 1
+         },
+         {
+            "id": 9,
+            "basket": {
+               "id": 4,
+               "username": "kelavam",
+               "orderStatus": "IN_PROGRESS",
+               "totalPrice": 155.00
+            },
+            "product": {
+               "id": 3,
+               "title": "Mama's dress",
+               "price": 100.00
+            },
+            "quantity": 1
+         }]
+         
 
 
     C. Removing a new basket item
@@ -56,3 +102,37 @@ There are two ways to test the code.
         Windows curl -X PUT http://localhost:8080/basket/items/2 -H "Content-Type: application/json" -d "{\"id\":1, \"quantity\":200}"
 
         Check with curl http://localhost:8080/basket/items
+
+
+### IDE and dependecies
+Spring Tool Suite 4.4.10.0. release
+Dependencies: JPA, H2, SpringWeb, DevTools
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
