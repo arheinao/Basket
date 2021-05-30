@@ -1,4 +1,4 @@
-### Assumption
+### Assumptions
 * App assumes that a request header contains the credentials to authenticate a user agent with a server. Mock method is [here](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/utilities/Users.java).
 * Relation between Basket and Customer is 1:1 (customer can have only one active basket).
 * Checkout is a process that consist of adding a delivery and billing address. There is no price and item quantity change during the checkout process. I use [enum OrderStatus](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/enumeration/OrderStatus.java) to distinct if Basket is in active state (IN_PROGRESS) or in checkout.
