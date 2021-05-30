@@ -13,7 +13,7 @@ There are two ways to test the code.
          curl http://localhost:8080/basket/items
 
       Response will be:
-      [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":1},            {"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},     {"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
+           [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":1},            {"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},     {"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
 
     B. Adding a new basket item
 
@@ -25,7 +25,7 @@ There are two ways to test the code.
     By adding a new item for product with id=1, quantity is updated to "2"  
          
          curl http://localhost:8080/basket/items
-[{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":2},{"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},{"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
+         [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":2},{"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},{"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
 
 
     C. Removing a new basket item
