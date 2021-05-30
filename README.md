@@ -23,7 +23,7 @@ There are two ways to test the code.
       Info: App initially loads and saves products to in-memory databse. In this way it simulates the real-world situation in which products have to exist before being added to       basket. 
 
     By adding a new item for product with id=1, quantity is updated to "2"
-    curl http://localhost:8080/basket/items
+         curl http://localhost:8080/basket/items
 [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":2},{"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":2,"title":"Michel's lens","price":5.00},"quantity":1},{"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":155.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
 
 
