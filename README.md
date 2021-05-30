@@ -1,7 +1,13 @@
+### Assumption
+App assumes that a request header contains the credentials to authenticate a user agent with a server. Mock method is [here](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/utilities/Users.java).
+
 ### Tests
 There are two ways to test the code.
 
-1) **As unit tests**  
+1) **As unit tests** 
+   
+   Link is [here](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/test/java/basketdemo1/BasketControllerTests.java).
+   
    BasketControllerTests class (basketdemo1 package) contains 3 unit tests:
     * Adding a basket item. _Test through rest controller using a mock rest service_
     * Removing non-existing basket item. _Tests if exception is thrown_
