@@ -13,6 +13,10 @@ There are two ways to test the code.
     * Removing non-existing basket item. _Tests if exception is thrown_
     * Calculation of total price. _Unit test of basket service returning the total price_
 
+Results:  
+<img src="https://github.com/arheinao/BasketTestResults/blob/main/BasketTests.png" width="800px" height="auto">  
+
+
 2) **As curl requests**  
    By running the Spring Boot App a H2 in-memory database is created and initialized through LoadDatabase class. Perform the following requests:
 
