@@ -16,6 +16,7 @@ public interface BasketServiceInterface {
 	public List<BasketEntity> getAllBaskets();
 	public BasketEntity getBasketById(Long id);
 	public BasketEntity getActiveBasketById(Long id);
+	public Optional<BasketEntity> getBasketByBasketIdAndOrderStatus(Long basketId, OrderStatus orderStatus);
 	public Optional<BasketEntity> getBasketByCustomerIdAndOrderStatus(String username, OrderStatus orderStatus);		
 	public BasketItemEntity addBasketItem(ProductEntity product, String username);
 	public void removeBasketItem(Long productId, String username);

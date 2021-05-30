@@ -106,6 +106,11 @@ public class BasketService implements BasketServiceInterface {
 	}
 	
 	@Override
+	public Optional<BasketEntity> getBasketByBasketIdAndOrderStatus(Long basketId, OrderStatus orderStatus) {
+		return basketRepository.getBasketByBasketIdandOrderStatus(basketId, orderStatus);
+	}
+	
+	@Override
 	public BigDecimal calculateTotalPrice(OrderStatus orderStatus) {
 		Optional<BasketEntity> basket = getBasketByCustomerIdAndOrderStatus(Users.getCurrentUsername(), orderStatus);
 		List<BasketItemEntity> basketItems = basketItemService.getAllBasketItems(basket.get().getId());

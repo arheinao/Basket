@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +17,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import basketdemo1.entities.BasketEntity;
 import basketdemo1.entities.BasketItemEntity;
+import basketdemo1.entities.PaymentDetails;
 import basketdemo1.entities.ProductEntity;
 import basketdemo1.enumeration.OrderStatus;
 import basketdemo1.services.BasketItemService;
+import basketdemo1.services.BasketNotFoundExeption;
 import basketdemo1.services.BasketService;
+import basketdemo1.services.PaymentException;
+import basketdemo1.services.PaymentMockService;
 import basketdemo1.utilities.Users;
 
 @RestController
@@ -27,10 +32,12 @@ public class BasketController {
 	
 	private BasketService basketService;	
 	private BasketItemService basketItemService;
+	private PaymentMockService paymentService;
 	
-	public BasketController(BasketService basketService, BasketItemService basketItemService) {
+	public BasketController(BasketService basketService, BasketItemService basketItemService, PaymentMockService paymentService) {
 		this.basketService = basketService;
 		this.basketItemService = basketItemService;
+		this.paymentService = paymentService;
 	}
 	
 	@GetMapping("/basket")
@@ -84,6 +91,20 @@ public class BasketController {
 		Long basketIdLong = Long.valueOf(basketId);
 		OrderStatus basketStatus = basketService.getBasketById(basketIdLong).getOrderStatus();
 		return basketService.calculateTotalPrice(basketStatus);
+	}
+	
+	@PostMapping("/basket/{basketId}/checkout/payment")
+	public ResponseEntity<Long> pay(@RequestBody PaymentDetails paymentDetails, @PathVariable String basketId) throws BasketNotFoundExeption, PaymentException {		
+				
+		Long basketIdLong = Long.valueOf(basketId);
+		BasketEntity basket = basketService.getBasketByBasketIdAndOrderStatus(basketIdLong, OrderStatus.CHECKOUT)
+				.orElseThrow(() -> new BasketNotFoundExeption());
+		
+		Long paymentId = paymentService.pay(paymentDetails, basket.getId(), basketService.calculateTotalPrice(OrderStatus.CHECKOUT));	
+		
+		return paymentId!=null?
+				new ResponseEntity<Long>(paymentId, HttpStatus.OK) 
+				: new ResponseEntity<Long>(HttpStatus.BAD_REQUEST);
 	}
 		
 }

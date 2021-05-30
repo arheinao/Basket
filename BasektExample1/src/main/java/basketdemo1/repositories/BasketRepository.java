@@ -13,4 +13,8 @@ public interface BasketRepository extends JpaRepository<BasketEntity, Long> {
 	@Query("SELECT b FROM BasketEntity b WHERE b.username=?1 AND b.orderStatus=?2")	
 	Optional<BasketEntity> getBasketByCustomerIdandOrderStatus(String username, OrderStatus orderStatus);
 	
+	@Query("SELECT b FROM BasketEntity b WHERE b.id=?1 AND b.orderStatus=?2")	
+	Optional<BasketEntity> getBasketByBasketIdandOrderStatus(Long basketId, OrderStatus orderStatus);
+
+	
 }

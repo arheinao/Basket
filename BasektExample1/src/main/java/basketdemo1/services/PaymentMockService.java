@@ -14,8 +14,8 @@ public class PaymentMockService implements PaymentServiceInterface {
 	//mock service
 	public Long pay(PaymentDetails paymentDetails, Long basketId, BigDecimal totalPrice) {
 		
-		//here goes payment execution
+		//Here goes payment execution. I assume here that payment is successful
 		
-		return Long.valueOf(1323);
+		return Long.valueOf(1);
 	}
 }
