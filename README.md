@@ -23,14 +23,14 @@ Results:
 2) **As curl requests**  
    By running the Spring Boot App a H2 in-memory database is created and initialized through LoadDatabase class. Perform the following requests:
 
-    A. Fetching all basket items
+    A. Fetching all basket items (GET example)
 
          curl http://localhost:8080/basket/items
 
       Response will be:
            [{"id":7,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":1,"title":"Marina's socks","price":25.00},"quantity":1},            {"id":8,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":2,"title":"Gorana's lens","price":5.00},"quantity":1},     {"id":9,"basket":{"id":4,"username":"kelavam","orderStatus":"IN_PROGRESS","totalPrice":0.00},"product":{"id":3,"title":"Mama's dress","price":100.00},"quantity":1}]
 
-    B. Adding a new basket item
+    B. Adding a new basket item (POST example)
 
          Mac curl -d '{"id":1}' -H 'Content-Type: application/json' http://localhost:8080/basket/items
          Windows curl -d "{\"id\":1}" -H "Content-Type: application/json" http://localhost:8080/basket/items
@@ -89,7 +89,7 @@ Results:
          
 
 
-    C. Removing a new basket item
+    C. Removing a new basket item (DELETE example)
 
          curl -X DELETE http://localhost:8080/basket/items/1
 
@@ -98,12 +98,12 @@ Results:
          Check with curl http://localhost:8080/basket/items
 
 
-    D. Getting a total price
+    D. Getting a total price (GET)
 
         curl http://localhost:8080/basket/4/total-price
 
 
-    E. Updating the item quantity.
+    E. Updating the item quantity (PUT example)
 
         Mac curl -X PUT http://localhost:8080/basket/items/2 -H 'Content-Type: application/json' -d '{"id":1, "quantity":200}'
         Windows curl -X PUT http://localhost:8080/basket/items/2 -H "Content-Type: application/json" -d "{\"id\":1, \"quantity\":200}"
