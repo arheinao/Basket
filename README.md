@@ -105,7 +105,7 @@ There are two ways to test the code.
 
 
 ### IDE and dependecies
-Spring Tool Suite 4.4.10.0. release
+IDE: Spring Tool Suite 4.4.10.0. release  
 Dependencies: JPA, H2, SpringWeb, DevTools
 
 	<dependencies>
