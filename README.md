@@ -1,8 +1,10 @@
 ### Assumption
 * App assumes that a request header contains the credentials to authenticate a user agent with a server. Mock method is [here](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/utilities/Users.java).
 * Relation between Basket and Customer is 1:1 (customer can have only one active basket).
-* Checkout is a process that consist of adding a delivery and billing address. There is no price and item quantity change during the checkout process. I use enum OrderStatus to distinct if Basket is in active state (IN_PROGRESS) or in checkout.
-* Payment is the final checkout last step (Basket needs to be in CHECKOUT status), so I moved it to REST BasketController instead of handling it in separate REST PaymentController. I use a mock payment service.
+* Checkout is a process that consist of adding a delivery and billing address. There is no price and item quantity change during the checkout process. I use [enum OrderStatus](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/enumeration/OrderStatus.java) to distinct if Basket is in active state (IN_PROGRESS) or in checkout.
+* Payment is the final checkout last step (Basket needs to be in CHECKOUT status), so I moved it to [REST BasketController](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/controllers/BasketController.java) instead of handling it in separate REST PaymentController. I use a mock payment service.
+* The whole [code](https://github.com/arheinao/Basket/tree/master/BasektExample1/src/main/java/basketdemo1) is divided into rest controller, services, repositories, entities and utilities (helpers) packages. A flow is following: )basket) rest controller -> (basket) service -> (basket) repository -> peform JPA mappning built-in method for saving, finding, deleting (basket) entity.
+
 
 ### Tests
 There are two ways to test the code.
