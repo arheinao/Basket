@@ -1,5 +1,6 @@
 ### Assumption
 * App assumes that a request header contains the credentials to authenticate a user agent with a server. Mock method is [here](https://github.com/arheinao/Basket/blob/master/BasektExample1/src/main/java/basketdemo1/utilities/Users.java).
+* Relation between Basket and Customer is 1:1 (customer can have only one active basket).
 * Checkout is a process that consist of adding a delivery and billing address. There is no price and item quantity change during the checkout process. I use enum OrderStatus to distinct if Basket is in active state (IN_PROGRESS) or in checkout.
 * Payment is the final checkout last step, so I moved it to BasketController instead of handling it in separate PaymentController. I use a mock payment service.
 
