@@ -29,11 +29,11 @@ There are two ways to test the code.
 
     C. Removing a new basket item
 
-      curl -X DELETE http://localhost:8080/basket/items/1
+         curl -X DELETE http://localhost:8080/basket/items/1
 
     Info: Completely removes the product, regardless on quantity.
 
-    Check with curl http://localhost:8080/basket/items
+         Check with curl http://localhost:8080/basket/items
 
 
     D. Getting a total price
