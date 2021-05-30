@@ -140,3 +140,9 @@ Dependencies: JPA, H2, SpringWeb, DevTools
 		</dependency>
 	</dependencies>
 
+
+### Materials
+[Building rest services with Spring](https://spring.io/guides/tutorials/rest/)  
+[Testing in Spring Boot](https://www.baeldung.com/spring-boot-testing)  
+[Designing a restful shopping cart](https://nvoulgaris.com/designing-a-restful-shopping-cart/)  
+Stackoverflow (mainly for searching how to fix bugs)  
